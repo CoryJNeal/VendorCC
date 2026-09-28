@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 const emptyForm = {
   firstName: "",
   lastName: "",
+  title: "",
   email: "",
   phone: "",
 };
@@ -39,6 +40,7 @@ export function VendorUserForm() {
     setForm({
       firstName: user.firstName,
       lastName: user.lastName,
+      title: user.title,
       email: user.email,
       phone: user.phone,
     });
@@ -64,6 +66,7 @@ export function VendorUserForm() {
     const payload = {
       firstName: form.firstName.trim(),
       lastName: form.lastName.trim(),
+      title: form.title.trim(),
       email: form.email.trim(),
       phone: form.phone.trim(),
     };
@@ -116,6 +119,9 @@ export function VendorUserForm() {
                 <p className="font-medium text-[#17343a]">
                   {user.firstName} {user.lastName}
                 </p>
+                {user.title ? (
+                  <p className="text-sm text-[#5f7a76]">{user.title}</p>
+                ) : null}
                 <p className="truncate text-sm text-[#5f7a76]">{user.email}</p>
                 {user.phone ? (
                   <p className="text-xs text-[#5f7a76]">{user.phone}</p>
@@ -167,6 +173,18 @@ export function VendorUserForm() {
             value={form.lastName}
             onChange={(e) => update("lastName", e.target.value)}
             autoComplete="family-name"
+          />
+        </div>
+        <div className="space-y-1.5 sm:col-span-2">
+          <Label htmlFor="title">
+            Title <span className="text-[#5f7a76]">(optional)</span>
+          </Label>
+          <Input
+            id="title"
+            value={form.title}
+            onChange={(e) => update("title", e.target.value)}
+            placeholder="e.g. Account Manager"
+            autoComplete="organization-title"
           />
         </div>
         <div className="space-y-1.5">

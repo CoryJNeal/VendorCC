@@ -231,15 +231,6 @@ function DocRow({ id }: { id: DocumentTypeId }) {
             <Upload />
             {doc.fileName ? "Replace" : "Upload"}
           </Button>
-          <Button
-            type="button"
-            size="sm"
-            variant="secondary"
-            disabled={busy}
-            onClick={() => onFile(makeSampleFile(def.label))}
-          >
-            Sample
-          </Button>
           {url && doc.fileName ? (
             <a
               href={url}
@@ -276,7 +267,7 @@ export function DocumentChecklist() {
         </h2>
         <p className="mt-1 text-sm text-[#5f7a76]">
           Upload documents, update status as the vendor signs off, and replace
-          files as needed. Changes stay in this browser.
+          files with edits as needed. Changes stay in this browser.
         </p>
       </div>
       <div className="overflow-x-auto">

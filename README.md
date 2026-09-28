@@ -4,13 +4,13 @@ Ops-facing communication hub for vendor documentation, onboarding, and performan
 
 ## Features
 
-- **Dashboard** — YTD orders/returns (linked to Reporting), top 10 styles pie chart, brand setup, vendor user add/update/remove, intake upload, and compliance checklist with status updates
+- **Dashboard** — YTD orders/returns (linked to Reporting), top 10 styles pie chart, brand setup (image + style #s), vendor user add/update/remove (with title), intake upload, and compliance checklist with status updates
 - **Documents** — library of uploaded files (intake form first)
 - **FTP Access** — Host, Username, and Password fields
 - **Reporting** — monthly orders and returns
 - **Pricing Setup / Style Setup** — placeholder pages
 
-Uploads, vendor users, brands, document status, and FTP credentials persist in this browser (`localStorage` + IndexedDB). No backend or auth.
+Uploads, vendor users, brands (with images), document status, and FTP credentials persist in this browser (`localStorage` + IndexedDB). No backend or auth.
 
 ## Run locally
 
