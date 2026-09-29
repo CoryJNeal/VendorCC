@@ -9,6 +9,7 @@ import {
   DollarSign,
   Shirt,
   BarChart3,
+  Tags,
   Menu,
   X,
 } from "lucide-react";
@@ -19,6 +20,7 @@ import { Button } from "@/components/ui/button";
 
 const NAV = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/brands", label: "Brand Management", icon: Tags },
   { href: "/documents", label: "Documents", icon: FileStack },
   { href: "/ftp", label: "FTP Access", icon: Server },
   { href: "/pricing", label: "Pricing Setup", icon: DollarSign },
