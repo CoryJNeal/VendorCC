@@ -248,29 +248,8 @@ export function TopStylesChart() {
           </div>
 
           <div className="chart-flip-scene mt-4">
-            <div className="chart-flipper" data-flipped={showingReturns ? "true" : "false"}>
-              <div
-                className="chart-flip-face"
-                data-side="front"
-                inert={showingReturns}
-                aria-hidden={showingReturns}
-              >
-                <StylePie
-                  styles={SELLING_STYLES}
-                  activeStyle={activeSelling}
-                  onActiveStyle={setActiveSelling}
-                  centerLabel="Top 10"
-                  amountCaption="YTD sales"
-                  amountColor="#1a6b63"
-                  chartLabel="Top 10 performing styles pie chart"
-                />
-              </div>
-              <div
-                className="chart-flip-face"
-                data-side="back"
-                inert={!showingReturns}
-                aria-hidden={!showingReturns}
-              >
+            <div key={mode} className="chart-panel-enter">
+              {showingReturns ? (
                 <StylePie
                   styles={RETURNED_STYLES}
                   activeStyle={activeReturned}
@@ -280,7 +259,17 @@ export function TopStylesChart() {
                   amountColor="#c46b2d"
                   chartLabel="Top 10 returned styles pie chart"
                 />
-              </div>
+              ) : (
+                <StylePie
+                  styles={SELLING_STYLES}
+                  activeStyle={activeSelling}
+                  onActiveStyle={setActiveSelling}
+                  centerLabel="Top 10"
+                  amountCaption="YTD sales"
+                  amountColor="#1a6b63"
+                  chartLabel="Top 10 performing styles pie chart"
+                />
+              )}
             </div>
           </div>
         </div>
