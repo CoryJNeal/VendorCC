@@ -1,4 +1,4 @@
-import { BrandFields } from "@/components/brand-fields";
+import { BrandInfoPanel } from "@/components/brand-info-panel";
 import {
   DocumentChecklist,
   IntakeUpload,
@@ -28,7 +28,7 @@ export default function DashboardPage() {
       <TopStylesChart />
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <BrandFields />
+        <BrandInfoPanel />
         <VendorUserForm />
       </div>
 

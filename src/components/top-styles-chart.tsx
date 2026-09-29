@@ -20,9 +20,17 @@ type PieStyle = {
   reason?: string;
 };
 
+/** Stable enough for identical SSR/client SVG path strings. */
+function roundCoord(n: number) {
+  return Math.round(n * 1e6) / 1e6;
+}
+
 function polar(cx: number, cy: number, r: number, angle: number) {
   const rad = ((angle - 90) * Math.PI) / 180;
-  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+  return {
+    x: roundCoord(cx + r * Math.cos(rad)),
+    y: roundCoord(cy + r * Math.sin(rad)),
+  };
 }
 
 function slicePath(cx: number, cy: number, r: number, start: number, end: number) {
