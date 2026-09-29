@@ -131,43 +131,24 @@
   perspective: 1200px;
 }
 
-.chart-flipper {
-  display: grid;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.4, 0.15, 0.2, 1);
+.chart-panel-enter {
+  transform-origin: center center;
+  animation: chart-flip-in 0.45s cubic-bezier(0.4, 0.15, 0.2, 1) both;
 }
 
-.chart-flipper[data-flipped="true"] {
-  transform: rotateY(180deg);
-}
-
-.chart-flip-face {
-  grid-area: 1 / 1;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.chart-flip-face[data-side="back"] {
-  transform: rotateY(180deg);
-}
-
-.chart-flipper[data-flipped="false"] .chart-flip-face[data-side="back"],
-.chart-flipper[data-flipped="true"] .chart-flip-face[data-side="front"] {
-  pointer-events: none;
+@keyframes chart-flip-in {
+  from {
+    opacity: 0;
+    transform: rotateY(85deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .chart-flipper {
-    transition: none;
-    transform: none;
-  }
-
-  .chart-flip-face[data-side="back"] {
-    transform: none;
-  }
-
-  .chart-flipper[data-flipped="false"] .chart-flip-face[data-side="back"],
-  .chart-flipper[data-flipped="true"] .chart-flip-face[data-side="front"] {
-    visibility: hidden;
+  .chart-panel-enter {
+    animation: none;
   }
 }
